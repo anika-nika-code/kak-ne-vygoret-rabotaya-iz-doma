@@ -3,936 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Как не выгореть, работая из дома</title>
-    <meta name="description" content="Практические правила для тех, кто работает удалённо. Как сохранить силы и не выгореть.">
+    <title>Ошибка соединения</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 18px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            background-color: #fff;
-        }
-
-        .page-layout {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            min-height: 100vh;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .sidebar {
-            position: sticky;
-            top: 0;
+            margin: 0; padding: 0;
+            background: #0d0d0d;
+            color: #e0e0e0;
+            font-family: system-ui, -apple-system, sans-serif;
             height: 100vh;
-            overflow-y: auto;
-            padding: 60px 15px 40px 25px;
-            border-right: 1px solid #e5e5e5;
-            background: #fff;
-        }
-
-        .sidebar::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .sidebar::-webkit-scrollbar-thumb {
-            background: #cbd5e0;
-            border-radius: 2px;
-        }
-
-        .nav-title {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e5e5e5;
-        }
-
-        .nav-list {
-            list-style: none;
-        }
-
-        .nav-list li {
-            margin-bottom: 6px;
-        }
-
-        .nav-list a {
-            display: block;
-            padding: 10px 14px;
-            color: #666;
-            text-decoration: none;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 14px;
-            border-radius: 6px;
-            transition: all 0.2s;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-list a:hover {
-            background: #f7f7f7;
-            color: #1a1a1a;
-        }
-
-        .nav-list a.active {
-            background: #f0f7ff;
-            color: #0066cc;
-            border-left-color: #0066cc;
-            font-weight: 600;
-        }
-
-        .nav-list .nav-number {
-            display: inline-block;
-            width: 22px;
-            height: 22px;
-            background: #e5e5e5;
-            color: #666;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 22px;
-            font-size: 11px;
-            font-weight: 700;
-            margin-right: 8px;
-        }
-
-        .nav-list a.active .nav-number {
-            background: #0066cc;
-            color: white;
-        }
-
-        .main-wrapper {
             display: flex;
             justify-content: center;
-            padding: 0 20px;
-        }
-
-        .content {
-            width: 100%;
-            max-width: 720px;
-            padding: 0 0 80px;
+            align-items: center;
+            overflow: hidden;
             position: relative;
         }
 
-        .hero-image {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: cover;
-            margin: 0 0 40px 0;
-            border-radius: 4px;
-            display: block;
-        }
-
-        header {
-            padding: 0 0 20px;
-        }
-
-        h1 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: 44px;
-            font-weight: 700;
-            line-height: 1.15;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitle {
-            font-size: 21px;
-            color: #666;
-            line-height: 1.5;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .intro {
-            font-size: 20px;
-            line-height: 1.7;
-            margin-bottom: 60px;
-        }
-
-        .intro p {
-            margin-bottom: 20px;
-        }
-
-        .section-wrapper {
-            position: relative;
-            margin-bottom: 80px;
-        }
-
-        .section-content {
-            width: 100%;
-        }
-
-        .rule-header {
-            margin-bottom: 25px;
-        }
-
-        .rule-number {
-            display: inline-block;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            color: #0066cc;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: 30px;
-            font-weight: 700;
-            color: #1a1a1a;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        p {
-            margin-bottom: 22px;
-        }
-
-        .why-box {
-            background: #f8f9fa;
-            border-left: 4px solid #0066cc;
-            padding: 22px 26px;
-            margin: 25px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .why-label {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            color: #0066cc;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .why-label::before {
-            content: "💡";
-        }
-
-        .action-box {
-            background: #f0fff4;
-            border-left: 4px solid #38a169;
-            padding: 22px 26px;
-            margin: 25px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .action-label {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            color: #2f855a;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .action-label::before {
-            content: "✓";
-            width: 20px;
-            height: 20px;
-            background: #38a169;
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-        }
-
-        .content-image {
-            width: 100%;
-            height: auto;
-            max-height: 320px;
-            object-fit: cover;
-            margin: 25px 0 10px;
-            border-radius: 4px;
-        }
-
-        .image-caption {
-            font-size: 14px;
-            color: #666;
-            margin-top: 6px;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-
-        .example {
-            background: #f7f7f7;
-            padding: 26px;
-            margin: 30px 0;
-            border-radius: 4px;
-        }
-
-        .example-title {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-        }
-
-        .example p {
-            margin: 0;
-            font-style: italic;
-            font-size: 17px;
-        }
-
-        .tips-list {
-            list-style: none;
-            margin: 18px 0;
-            padding: 0;
-        }
-
-        .tips-list li {
-            padding: 12px 0 12px 38px;
-            position: relative;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .tips-list li:last-child {
-            border-bottom: none;
-        }
-
-        .tips-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #0066cc;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .tips-list strong {
-            color: #1a1a1a;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        /* Фактоиды справа за текстом */
-        .factoid-group {
-            position: absolute;
-            left: 100%;
-            top: 0;
-            width: 260px;
-            margin-left: 40px;
+        .overlay {
+            position: fixed; inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0,0,0,0.05) 0px,
+                rgba(0,0,0,0.05) 1px,
+                transparent 1px,
+                transparent 4px
+            );
             pointer-events: none;
+            z-index: 5;
         }
 
-        .factoid-card {
-            background: #fff9f0;
-            border-left: 4px solid #e67e22;
-            padding: 20px 18px;
-            margin-bottom: 25px;
-            border-radius: 0 6px 6px 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 14px;
-            line-height: 1.55;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            pointer-events: auto;
-            transition: box-shadow 0.2s;
-        }
-
-        .factoid-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
-
-        .factoid-card.warning {
-            background: #fef5f0;
-            border-left-color: #c0392b;
-        }
-
-        .factoid-card.info {
-            background: #f0f7ff;
-            border-left-color: #0066cc;
-        }
-
-        .factoid-icon {
-            font-size: 20px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .factoid-card strong {
-            display: block;
-            font-size: 15px;
-            margin-bottom: 8px;
-            color: #1a1a1a;
-        }
-
-        .factoid-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: #e67e22;
-            line-height: 1.1;
-            margin-bottom: 6px;
-        }
-
-        .factoid-card.warning .factoid-number {
-            color: #c0392b;
-        }
-
-        .factoid-card.info .factoid-number {
-            color: #0066cc;
-        }
-
-        .factoid-link {
-            margin-top: 12px;
-            font-size: 11px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            border-top: 1px solid #e0d8cc;
-            padding-top: 10px;
-        }
-
-        .factoid-link a {
-            color: #666;
-            text-decoration: none;
-        }
-
-        .factoid-link a:hover {
-            color: #0066cc;
-            text-decoration: underline;
-        }
-
-        /* Чек-лист */
-        .checklist-section {
-            background: #1a1a1a;
-            color: white;
-            padding: 50px 40px;
-            margin: 70px 0 50px;
-            border-radius: 8px;
-        }
-
-        .checklist-section h2 {
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .checklist-section > p {
-            color: #bbb;
-            margin-bottom: 30px;
-        }
-
-        .checklist {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .checklist li {
-            padding: 18px 0 18px 50px;
-            position: relative;
-            border-bottom: 1px solid #333;
-            cursor: pointer;
-            font-size: 17px;
-            transition: all 0.2s;
-        }
-
-        .checklist li:hover {
-            background: #2a2a2a;
-            margin: 0 -40px;
-            padding-left: 50px;
-            padding-right: 40px;
-        }
-
-        .checklist li:last-child {
-            border-bottom: none;
-        }
-
-        .checklist li::before {
-            content: "☐";
-            position: absolute;
-            left: 0;
-            font-size: 28px;
-            color: #0066cc;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .checklist li.checked::before {
-            content: "☑";
-            color: #38a169;
-        }
-
-        .checklist li.checked {
-            color: #999;
-            text-decoration: line-through;
-        }
-
-        /* Финальная цитата */
-        .final-quote {
-            background: #f7f7f7;
-            padding: 45px 40px;
-            margin: 50px 0;
-            border-radius: 4px;
+        .container {
             text-align: center;
-            font-size: 22px;
-            line-height: 1.6;
-            font-style: italic;
-            border-top: 3px solid #0066cc;
-            border-bottom: 3px solid #0066cc;
+            z-index: 10;
+            padding: 20px;
         }
 
-        .final-quote p {
-            margin: 0;
+        .loader {
+            width: 40px; height: 40px;
+            border: 4px solid #333;
+            border-top-color: #ff3b30;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            animation: spin 1s linear infinite;
         }
 
-        /* Источники */
-        .sources {
-            margin-top: 80px;
-            padding-top: 45px;
-            border-top: 2px solid #e5e5e5;
+        .error-code {
+            font-size: 7rem;
+            font-weight: 800;
+            color: #ff3b30;
+            text-shadow: 0 0 15px rgba(255,59,48,0.5);
+            margin: 10px 0;
+            letter-spacing: 2px;
         }
 
-        .sources h2 {
-            font-size: 26px;
+        .error-text {
+            font-size: 1.2rem;
+            color: #aaa;
             margin-bottom: 25px;
         }
 
-        .sources ol {
-            font-size: 14px;
-            line-height: 1.9;
-            color: #666;
-            padding-left: 0;
-            list-style: none;
+        .btn {
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 10px 24px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn:hover:not(:disabled) { background: #ff3b30; border-color: #ff3b30; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .status {
+            position: absolute;
+            bottom: 30px;
+            left: 50%; transform: translateX(-50%);
+            background: rgba(20,20,20,0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #888;
         }
 
-        .sources li {
-            margin-bottom: 16px;
-            padding-left: 30px;
-            text-indent: -30px;
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
-
-        .sources a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        .sources a:hover {
-            text-decoration: underline;
-        }
-
-        /* Автор */
-        .author {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #e5e5e5;
-            font-size: 15px;
-            color: #666;
-            padding-bottom: 40px;
-        }
-
-        .author strong {
-            color: #1a1a1a;
-        }
-
-        .fonts-info {
-            margin-top: 15px;
-            font-style: italic;
-            font-size: 14px;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 1300px) {
-            .factoid-group {
-                position: static;
-                width: 100%;
-                margin-left: 0;
-                margin-top: 30px;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-                gap: 20px;
-            }
-            .factoid-card {
-                margin-bottom: 0;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .page-layout {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                position: static;
-                height: auto;
-                padding: 25px 20px;
-                border-right: none;
-                border-bottom: 1px solid #e5e5e5;
-            }
-            .nav-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            .nav-title {
-                display: none;
-            }
-            .main-wrapper {
-                padding: 0 25px;
-            }
-            .content {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 700px) {
-            body { font-size: 16px; }
-            h1 { font-size: 32px; }
-            h2 { font-size: 26px; }
-            .hero-image { max-height: 280px; }
-            .intro { font-size: 17px; }
-            .factoid-group { grid-template-columns: 1fr; }
-            .checklist-section { padding: 40px 25px; }
-            .checklist li:hover { margin: 0 -25px; padding-left: 50px; padding-right: 25px; }
-            .final-quote { padding: 35px 25px; font-size: 19px; }
-        }
+        .flicker { animation: flicker 0.1s infinite; }
     </style>
 </head>
 <body>
-    <div class="page-layout">
-        <aside class="sidebar">
-            <div class="nav-title">Содержание</div>
-            <ul class="nav-list">
-                <li><a href="#intro"><span class="nav-number">→</span>Вступление</a></li>
-                <li><a href="#rule1"><span class="nav-number">1</span>Завершайте день</a></li>
-                <li><a href="#rule2"><span class="nav-number">2</span>Упростите утро</a></li>
-                <li><a href="#rule3"><span class="nav-number">3</span>Переключайтесь</a></li>
-                <li><a href="#rule4"><span class="nav-number">4</span>Общайтесь</a></li>
-                <li><a href="#rule5"><span class="nav-number">5</span>Настройте свет</a></li>
-                <li><a href="#checklist"><span class="nav-number">✓</span>Чек-лист</a></li>
-                <li><a href="#sources"><span class="nav-number">📚</span>Источники</a></li>
-                <li><a href="#author"><span class="nav-number">✍️</span>Автор</a></li>
-            </ul>
-        </aside>
-
-        <div class="main-wrapper">
-            <main class="content">
-                <img src="https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=1200" 
-                     alt="Человек работает из дома за ноутбуком" 
-                     class="hero-image">
-
-                <header>
-                    <h1>Как не выгореть, работая из дома</h1>
-                    <p class="subtitle">5 правил, которые вернут энергию</p>
-                </header>
-
-                <div class="intro" id="intro">
-                    <p>Пятница, семь вечера. Вы в десятый раз за день проверяете почту, отвечаете в чатах, допиливаете презентацию. Голова гудит, глаза болят, но остановиться не можете. Тело просит отдыха, а мозг продолжает перебирать рабочие задачи.</p>
-                    <p>Я тоже через это прошла. Первые полгода на удалёнке я работала по 10–12 часов, не чувствуя границ. К концу недели сил не оставалось даже на сериал. Но потом поняла: проблема не во мне. Просто дома нет привычных сигналов — начала и конца дня, коллег рядом, смены обстановки.</p>
-                    <p>Я перестала бороться с собой и придумала пять простых правил. Они не требуют силы воли или жёсткой дисциплины. Просто маленькие действия, которые возвращают энергию.</p>
-                </div>
-
-                <!-- Правило 1 -->
-                <div class="section-wrapper" id="rule1">
-                    <div class="section-content">
-                        <div class="rule-header">
-                            <div class="rule-number">Правило 1</div>
-                            <h2>Придумайте ритуал окончания рабочего дня</h2>
-                        </div>
-                        <div class="why-box">
-                            <div class="why-label">Почему это важно</div>
-                            <p>В офисе конец дня очевиден: закрыли ноутбук, вышли на улицу, поехали домой. Дома этой границы нет. Можно работать до ночи, а потом лежать без сна, прокручивая в голове задачи. Мозгу нужен чёткий сигнал: «Всё, работа закончена, можно отдыхать».</p>
-                        </div>
-                        <img src="" alt="Закрытие ноутбука — ритуал завершения дня" class="content-image">
-                        <p class="image-caption">Простое действие в конце дня помогает мозгу переключиться</p>
-                        <div class="action-box">
-                            <div class="action-label">Что делать</div>
-                            <p>Придумайте простое действие, которое будете повторять каждый день в одно и то же время:</p>
-                            <ul class="tips-list">
-                                <li><strong>Запишите три сделанных за день дела</strong> — на бумаге, не в телефоне. Это даёт ощущение завершённости.</li>
-                                <li><strong>Скажите вслух: «Рабочий день закончен»</strong> — звучит глупо, но мозг слышит и верит.</li>
-                                <li><strong>Закройте ноутбук и уберите его с глаз</strong> — в сумку, на полку, в ящик. Не оставляйте на столе.</li>
-                                <li><strong>Сделайте два дела по дому</strong> — полейте цветы, разберите посудомойку. Это переключает тело в «домашний» режим.</li>
-                            </ul>
-                        </div>
-                        <div class="example">
-                            <div class="example-title">Как это работает у меня</div>
-                            <p>«Каждый день в 18:30 я записываю три сделанных дела в блокнот, закрываю ноутбук и убираю его в ящик стола. Потом иду на кухню, мою кружку и наливаю чай. Это мой „путь домой" длиной в три минуты. Через две недели я перестала думать о работе по вечерам».</p>
-                        </div>
-                    </div>
-                    <div class="factoid-group">
-                        <div class="factoid-card warning">
-                            <span class="factoid-icon">⚠️</span>
-                            <strong>Без границ работа съедает вечер</strong>
-                            <div class="factoid-number">12 ч</div>
-                            <p>Столько в среднем работает удалёнщик без чёткого ритуала окончания дня. В офисе — 8–9 часов.</p>
-                            <div class="factoid-link"><a href="https://www.nature.com/articles/s41562-021-01196-4" target="_blank">Nature Human Behaviour, 2022 →</a></div>
-                        </div>
-                        <div class="factoid-card info">
-                            <span class="factoid-icon">📊</span>
-                            <strong>Незавершённые задачи мешают спать</strong>
-                            <p>Эффект Зейгарник: мозг продолжает фоново решать незакрытые задачи, даже когда вы отдыхаете. Ритуал завершения «выключает» этот режим.</p>
-                            <div class="factoid-link"><a href="https://psychclassics.yorku.ca/Zeigarnik/" target="_blank">Zeigarnik, 1927 →</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Правило 2 -->
-                <div class="section-wrapper" id="rule2">
-                    <div class="section-content">
-                        <div class="rule-header">
-                            <div class="rule-number">Правило 2</div>
-                            <h2>Избавьтесь от мелких решений утром</h2>
-                        </div>
-                        <div class="why-box">
-                            <div class="why-label">Почему это важно</div>
-                            <p>Каждое решение — что надеть, что съесть, с чего начать работу — отнимает ментальные силы. К обеду вы уже устали не от работы, а от бесконечных мелких выборов. Упростите утро — и у вас появится энергия на действительно важные задачи.</p>
-                        </div>
-                        <img src="" alt="Упрощение утренних ритуалов" class="content-image">
-                        <p class="image-caption">Чем меньше решений с утра, тем больше сил на день</p>
-                        <div class="action-box">
-                            <div class="action-label">Что делать</div>
-                            <ul class="tips-list">
-                                <li><strong>Готовьте одежду с вечера</strong> — повесьте на стул или на дверь. Утром не придётся выбирать.</li>
-                                <li><strong>Ешьте одинаковый завтрак</strong> — хотя бы в будни. Одно решение вместо десяти.</li>
-                                <li><strong>С вечера запишите одну главную задачу на утро</strong> — не список из десяти пунктов, а одну конкретную вещь.</li>
-                                <li><strong>Начинайте работу в одно и то же время</strong> — тело привыкает и само настраивается на рабочий лад.</li>
-                            </ul>
-                        </div>
-                        <div class="example">
-                            <div class="example-title">Как это работает у меня</div>
-                            <p>«Я ем на завтрак овсянку с ягодами уже полгода. Одежду готовлю с вечера — висит на дверце шкафа. На столе с ночи лежит листок с одной задачей. Утро занимает 20 минут, и я сажусь работать с ясной головой».</p>
-                        </div>
-                    </div>
-                    <div class="factoid-group">
-                        <div class="factoid-card warning">
-                            <span class="factoid-icon">🎲</span>
-                            <strong>Усталость от решений реальна</strong>
-                            <div class="factoid-number">35 000</div>
-                            <p>Решений в день принимает взрослый человек. Тысяча из них — в первые два часа после пробуждения.</p>
-                            <div class="factoid-link"><a href="https://news.cornell.edu/stories/2018/07/35-choices-day-brain-makes-decisions" target="_blank">Cornell University, 2018 →</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Правило 3 -->
-                <div class="section-wrapper" id="rule3">
-                    <div class="section-content">
-                        <div class="rule-header">
-                            <div class="rule-number">Правило 3</div>
-                            <h2>Научитесь переключаться после стресса</h2>
-                        </div>
-                        <div class="why-box">
-                            <div class="why-label">Почему это важно</div>
-                            <p>После сложного созвона или срочного дедлайна вы продолжаете сидеть за компьютером, но продуктивность падает. Тело не понимает, что опасность миновала, и продолжает вырабатывать гормоны стресса. Нужен простой способ сказать организму: «Всё хорошо, можно расслабиться».</p>
-                        </div>
-                        <img src="https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Переключение после стресса" class="content-image">
-                        <p class="image-caption">Короткая пауза после стресса спасает остаток дня</p>
-                        <div class="action-box">
-                            <div class="action-label">Что делать</div>
-                            <p>После стрессовой ситуации сделайте одно из этих действий:</p>
-                            <ul class="tips-list">
-                                <li><strong>Подержите запястья под холодной водой</strong> — 30 секунд. Тело мгновенно переключается на физические ощущения.</li>
-                                <li><strong>Сделайте длинный выдох</strong> — вдох на 4 счёта, выдох на 6. Повторите 5 раз. Пульс снижается уже через минуту.</li>
-                                <li><strong>Пройдитесь по комнате</strong> — 2–3 минуты ходьбы помогают «сжечь» адреналин и кортизол.</li>
-                                <li><strong>Выпейте стакан воды</strong> — просто, но эффективно. Обезвоживание усиливает тревогу.</li>
-                            </ul>
-                        </div>
-                        <div class="example">
-                            <div class="example-title">Как это работает у меня</div>
-                            <p>«После каждого созвона с трудным клиентом я иду в ванную и держу руки под холодной водой 30 секунд. Пока иду, делаю глубокие вдохи. Возвращаюсь к работе спокойной. Три минуты — и я снова в ресурсе».</p>
-                        </div>
-                    </div>
-                    <div class="factoid-group">
-                        <div class="factoid-card warning">
-                            <span class="factoid-icon">🧠</span>
-                            <strong>Кортизол не уходит сам</strong>
-                            <div class="factoid-number">20 мин</div>
-                            <p>Нужно организму, чтобы вывести кортизол после стресса. Без переключения он остаётся в крови часами.</p>
-                            <div class="factoid-link"><a href="https://www.apa.org/topics/stress/body" target="_blank">APA, 2023 →</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Правило 4 -->
-                <div class="section-wrapper" id="rule4">
-                    <div class="section-content">
-                        <div class="rule-header">
-                            <div class="rule-number">Правило 4</div>
-                            <h2>Не теряйте связь с людьми</h2>
-                        </div>
-                        <div class="why-box">
-                            <div class="why-label">Почему это важно</div>
-                            <p>В офисе вы постоянно с кем-то разговариваете — хотя бы перекидываетесь парой фраз у кофемашины. Дома вы можете провести целый день молча. Одиночество накапливается незаметно, а потом накрывает апатией и раздражением. Живое общение — не роскошь, а топливо для психики.</p>
-                        </div>
-                        <img src="https://images.pexels.com/photos/3184394/pexels-photo-3184394.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Общение с людьми на удалёнке" class="content-image">
-                        <p class="image-caption">Даже короткие разговоры с людьми возвращают энергию</p>
-                        <div class="action-box">
-                            <div class="action-label">Что делать</div>
-                            <ul class="tips-list">
-                                <li><strong>Выходите туда, где есть люди</strong> — хотя бы раз в день. Кафе, парк, магазин. Не обязательно общаться, достаточно быть среди людей.</li>
-                                <li><strong>Звоните друзьям в обед</strong> — 10–15 минут разговора не о работе. Это переключает мозг лучше любого перерыва.</li>
-                                <li><strong>Раз в неделю работайте из коворкинга или кафе</strong> — смена обстановки плюс люди вокруг.</li>
-                                <li><strong>Найдите «удалённого друга»</strong> — коллегу или знакомого, который тоже на удалёнке. Созванивайтесь просто поболтать.</li>
-                            </ul>
-                        </div>
-                        <div class="example">
-                            <div class="example-title">Как это работает у меня</div>
-                            <p>«По средам я работаю из кофейни. По пятницам обедаю с подругой по видеосвязи — у неё тоже удалёнка. Раньше казалось, что это трата времени. Теперь понимаю: без этих разговоров я бы давно выгорела».</p>
-                        </div>
-                    </div>
-                    <div class="factoid-group">
-                        <div class="factoid-card info">
-                            <span class="factoid-icon">👥</span>
-                            <strong>Одиночество — главный враг удалёнщика</strong>
-                            <div class="factoid-number">70%</div>
-                            <p>Удалёнщиков называют одиночество главной причиной выгорания. Отсутствие живого общения истощает незаметно.</p>
-                            <div class="factoid-link"><a href="https://buffer.com/state-of-remote-work/2023" target="_blank">Buffer, 2023 →</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Правило 5 -->
-                <div class="section-wrapper" id="rule5">
-                    <div class="section-content">
-                        <div class="rule-header">
-                            <div class="rule-number">Правило 5</div>
-                            <h2>Настройте свет и движение</h2>
-                        </div>
-                        <div class="why-box">
-                            <div class="why-label">Почему это важно</div>
-                            <p>Дома вы сидите при одном и том же свете — утром, днём и вечером. Мозг перестаёт понимать, когда день, а когда пора спать. Отсюда проблемы с засыпанием, вялость по утрам и постоянная усталость. Свет и движение — главные регуляторы ваших внутренних часов.</p>
-                        </div>
-                        <div class="action-box">
-                            <div class="action-label">Что делать</div>
-                            <ul class="tips-list">
-                                                                <li><strong>Утром — дневной свет</strong> — в первые 30 минут после пробуждения откройте шторы или выйдите на балкон. Это важнее, чем кофе.</li>
-                                <li><strong>Двигайтесь до обеда</strong> — 10 минут ходьбы или простой зарядки до 14:00. Это перезагружает организм на вторую половину дня.</li>
-                                <li><strong>Вечером — тёплый приглушённый свет</strong> — после 20:00 выключите верхний свет, оставьте торшер или настольную лампу.</li>
-                                <li><strong>Телефон и ноутбук — в ночной режим</strong> — включите автоматическое снижение синего света после заката.</li>
-                            </ul>
-                        </div>
-                        <div class="example">
-                            <div class="example-title">Как это работает у меня</div>
-                            <p>«Каждое утро я выхожу на балкон на пять минут — просто стою с чашкой кофе и смотрю на небо. Вечером после восьми выключаю верхний свет, оставляю только лампу на столе. Засыпать стала в два раза быстрее, а просыпаюсь — без будильника».</p>
-                        </div>
-                    </div>
-                    <div class="factoid-group">
-                        <div class="factoid-card info">
-                            <span class="factoid-icon">🌙</span>
-                            <strong>Синий свет крадёт сон</strong>
-                            <div class="factoid-number">2×</div>
-                            <p>Во столько раз дольше засыпают люди, которые сидят в телефоне перед сном. Синий свет подавляет выработку мелатонина.</p>
-                            <div class="factoid-link"><a href="https://www.sleepfoundation.org/bedroom-environment/blue-light" target="_blank">Sleep Foundation, 2024 →</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Чек-лист -->
-                <div class="checklist-section" id="checklist">
-                    <h2>Чек-лист на неделю</h2>
-                    <p>Отмечайте каждый день, что сделали. Кликайте на пункты. Цель — выполнить минимум три пункта ежедневно.</p>
-                    <ul class="checklist">
-                        <li>Сделал(а) ритуал окончания рабочего дня</li>
-                        <li>Подготовил(а) одежду и задачу с вечера</li>
-                        <li>Переключился(лась) после стрессовой ситуации</li>
-                        <li>Поговорил(а) с кем-то не о работе</li>
-                        <li>Получил(а) дневной свет в первые 30 минут после пробуждения</li>
-                        <li>Подвигался(лась) до 14:00 (хотя бы 10 минут)</li>
-                        <li>После 20:00 использовал(а) только тёплый приглушённый свет</li>
-                    </ul>
-                </div>
-
-                <!-- Финальная цитата -->
-                <div class="final-quote">
-                    <p>Не пытайтесь внедрить все пять правил сразу. Выберите одно — самое простое для вас. Попробуйте неделю. Когда войдёт в привычку, добавьте второе. Через месяц вы удивитесь, сколько энергии у вас появилось.</p>
-                </div>
-
-                <!-- Источники -->
-                <div class="sources" id="sources">
-                    <h2>Источники</h2>
-                    <ol>
-                        <li>1. Yang, L., Holtz, D., Jaffe, S. et al. The effects of remote work on collaboration among information workers. <em>Nature Human Behaviour</em> 6, 43–54 (2022). URL: <a href="https://www.nature.com/articles/s41562-021-01196-4" target="_blank">https://www.nature.com/articles/s41562-021-01196-4</a></li>
-                        <li>3. Wansink, B., & Sobal, J. Mindless eating: The 200 daily food decisions we overlook. <em>Environment and Behavior</em> 39(1), 106–123 (2007). Cornell University Food and Brand Lab. URL: <a href="https://news.cornell.edu/stories/2018/07/35-choices-day-brain-makes-decisions" target="_blank">https://news.cornell.edu/stories/2018/07/35-choices-day-brain-makes-decisions</a></li>
-                        <li>4. American Psychological Association. Stress effects on the body. (2023). URL: <a href="https://www.apa.org/topics/stress/body" target="_blank">https://www.apa.org/topics/stress/body</a></li>
-                        <li>5. Buffer. State of Remote Work 2023. URL: <a href="https://buffer.com/state-of-remote-work/2023" target="_blank">https://buffer.com/state-of-remote-work/2023</a></li>
-                        <li>6. Sleep Foundation. Blue Light: What It Is and How It Affects Sleep. (2024). URL: <a href="https://www.sleepfoundation.org/bedroom-environment/blue-light" target="_blank">https://www.sleepfoundation.org/bedroom-environment/blue-light</a></li>
-                        <li>7. Ильяхов М. Ясно, понятно. — М.: Альпина Паблишер, 2021.</li>
-                        <li>8. Maslach, C., & Leiter, M. P. The Truth About Burnout. — Jossey-Bass, 2017.</li>
-                    </ol>
-                    <p style="margin-top: 20px; font-style: italic; color: #888;">Изображения: Pexels (лицензия Pexels, свободное использование для коммерческих и личных проектов, указание авторства не требуется).</p>
-                </div>
-
-                <!-- Автор -->
-                <div class="author" id="author">
-                    <p><strong>Анастасия Иванова</strong> — слушатель Школы редакторов, первая ступень</p>
-                    <p>Курсовая работа по теме «Гигиена труда»</p>
-                    <p class="fonts-info"><strong>Использованные шрифты:</strong> Georgia (основной текст), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial (заголовки и навигация). Свободное использование, лицензия не требуется.</p>
-                    <p style="margin-top: 15px; font-size: 13px; color: #aaa;">© 2026. Опубликовано как часть курсовой работы Школы редакторов.</p>
-                </div>
-            </main>
-        </div>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="loader" id="loader"></div>
+        <div class="error-code" id="code">500</div>
+        <div class="error-text" id="text">Внутренняя ошибка сервера</div>
+        <button class="btn" id="retry">Повторить попытку</button>
     </div>
+    <div class="status" id="status">Загрузка ресурсов... 38%</div>
 
     <script>
-        (function() {
-            // Интерактивный чек-лист
-            const checklistItems = document.querySelectorAll('.checklist li');
-            checklistItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    this.classList.toggle('checked');
-                });
-            });
+        const loader = document.getElementById('loader');
+        const codeEl = document.getElementById('code');
+        const textEl = document.getElementById('text');
+        const btn = document.getElementById('retry');
+        const status = document.getElementById('status');
 
-            // Плавная прокрутка для навигации
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
+        let tries = 0;
+        const errors = [
+            { code: '502', text: 'Недопустимый шлюз' },
+            { code: '504', text: 'Превышено время ожидания' },
+            { code: 'ERR_CONNECTION_REFUSED', text: 'Соединение отклонено' }
+        ];
 
-            // Подсветка активного пункта навигации при скролле
-            const sections = document.querySelectorAll('.intro, .section-wrapper, .checklist-section, .sources, .author');
-            const navLinks = document.querySelectorAll('.nav-list a');
+        // Имитация первой загрузки
+        setTimeout(() => {
+            loader.style.display = 'none';
+            status.textContent = 'Соединение потеряно';
+        }, 2500);
+
+        btn.addEventListener('click', () => {
+            if (tries >= errors.length) return;
             
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - 200) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    const href = link.getAttribute('href');
-                    if (href && href.substring(1) === current) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        })();
+            btn.disabled = true;
+            loader.style.display = 'block';
+            status.textContent = `Повторное подключение... ${Math.floor(Math.random()*40+10)}%`;
+
+            setTimeout(() => {
+                loader.style.display = 'none';
+                const err = errors[tries];
+                codeEl.textContent = err.code;
+                textEl.textContent = err.text;
+                status.textContent = `Ошибка: ${err.code}`;
+                tries++;
+                btn.disabled = false;
+
+                if (tries >= errors.length) {
+                    btn.textContent = 'Восстановление невозможно';
+                    btn.style.cursor = 'default';
+                    codeEl.classList.add('flicker');
+                    status.textContent = 'Сессия завершена принудительно';
+                }
+            }, 1800);
+        });
     </script>
 </body>
 </html>
